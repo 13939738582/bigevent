@@ -4,17 +4,22 @@ $(function() {
     // 退出功能
     $('#btn-ogout').on('click', function() {
         layui.layer.confirm('确定退出登录', { icon: 3, title: '提示' }, function(index) {
-            // 当用户点击确定时退出
-            // 1.清空本地存储中的token
-            localStorage.removeItem('token');
-            // 2.返回登录页面
-            location.href = 'login.html';
+            exit();
             // 关闭弹出层
             layer.close(index);
         });
     });
 
 });
+
+// 退出功能
+function exit() {
+    // 当用户点击确定时退出
+    // 1.清空本地存储中的token
+    localStorage.removeItem('token');
+    // 2.返回登录页面
+    location.href = 'login.html';
+}
 
 // 获取用户信息
 function getUserInfo() {
